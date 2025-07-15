@@ -63,7 +63,7 @@ To create a new module using the RobustFunctionClass Paradigm:
 4. Document and test as shown in the provided test suite.
 
 ## License
-This paradigm and example code are provided under the MIT License.
+This paradigm and example code are provided under the [MIT License](./LICENSE).
 
 ---
 
