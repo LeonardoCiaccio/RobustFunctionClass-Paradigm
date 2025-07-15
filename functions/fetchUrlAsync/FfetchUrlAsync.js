@@ -1,13 +1,13 @@
 
 /**
- * CFetchUrl
+ * CFetchUrlAsync
  *
  * Robust, extensible async class for fetching the content of a web page.
  * Encapsulates argument validation, environment preparation, business logic,
  * error handling, and standardized response formatting.
  *
  * Usage:
- *   const fetcher = new CFetchUrl({ url: 'https://example.com' });
+ *   const fetcher = new CFetchUrlAsync({ url: 'https://example.com' });
  *   const result = await fetcher.Action();
  *
  * The Action() method always returns a Promise that resolves to an object:
@@ -17,13 +17,13 @@
  *     result: string|null
  *   }
  */
-class CFetchUrl {
+class CFetchUrlAsync {
 
     /**
      * Public property: class name
      * @type {string}
      */
-    Name = 'CFetchUrl';
+    Name = 'CFetchUrlAsync';
 
     /**
      * Private required arguments
@@ -177,6 +177,6 @@ class CFetchUrl {
  *     console.error(res.message);
  *   }
  */
-export async function fetchUrl(url) {
-    return await new CFetchUrl({ url }).Action();
+export async function fetchUrlAsync(url) {
+    return await new CFetchUrlAsync({ url }).Action();
 }

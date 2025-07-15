@@ -25,11 +25,11 @@ if (result.isSuccess) {
     console.error('Error:', result.message);
 }
 
-// Asynchronous example (fetchUrl)
-import { fetchUrl } from './functions/fetchUrl/FfetchUrl.js';
+// Asynchronous example (fetchUrlAsync)
+import { fetchUrlAsync } from './functions/fetchUrlAsync/FfetchUrlAsync.js';
 
 (async () => {
-    const res = await fetchUrl('https://www.example.com');
+    const res = await fetchUrlAsync('https://www.example.com');
     if (res.isSuccess) {
         console.log('Fetched content:', res.result);
     } else {
