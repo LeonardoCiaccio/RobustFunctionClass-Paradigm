@@ -12,17 +12,30 @@ This module demonstrates the **RobustFunctionClass Paradigm**: a robust, extensi
 - **Testability**: The clear separation of concerns and standardized output make automated testing straightforward.
 - **Functional Interface**: A simple function (e.g., `calculateAreaSquare`) wraps the class, providing an easy-to-use API for consumers.
 
+
 ## Example Usage
 ```js
 import { calculateAreaSquare } from './functions/calculateAreaSquare/FCalculateAreaSquare.js';
 
-// This is just an example: you can apply the same pattern to any business logic
+// Synchronous example
 const result = calculateAreaSquare(5);
 if (result.isSuccess) {
     console.log('Result:', result.result);
 } else {
     console.error('Error:', result.message);
 }
+
+// Asynchronous example (fetchUrl)
+import { fetchUrl } from './functions/fetchUrl/FfetchUrl.js';
+
+(async () => {
+    const res = await fetchUrl('https://www.example.com');
+    if (res.isSuccess) {
+        console.log('Fetched content:', res.result);
+    } else {
+        console.error('Fetch error:', res.message);
+    }
+})();
 ```
 
 ## When to Use This Paradigm
