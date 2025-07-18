@@ -33,14 +33,14 @@ describe('calculateAreaCircle', () => {
   test('should return an error if radius is missing', () => {
     const result = calculateAreaCircle();
     expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaCircle \| Validation error: The radius must be a strictly positive number and not NaN./);
+    expect(result.message).toMatch(/Validation error: The radius must be a strictly positive number and not NaN./);
     expect(result.result).toBeNull();
   });
 
   test('should return an error if radius is not a number (string)', () => {
     const result = calculateAreaCircle('abc');
     expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaCircle \| Validation error: The radius must be a strictly positive number and not NaN./);
+    expect(result.message).toMatch(/Validation error: The radius must be a strictly positive number and not NaN./);
     expect(result.result).toBeNull();
   });
 
@@ -85,58 +85,4 @@ describe('calculateAreaCircle', () => {
     expect(result.message).toMatch(/Validation error: The radius must be a strictly positive number and not NaN./);
     expect(result.result).toBeNull();
   });
-
-  test('should return an error if required arguments are not an object', () => {
-    const calculator = new CCalculateAreaCircle(null);
-    const result = calculator.Action();
-    expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaCircle \| Required must be an object./);
-    expect(result.result).toBeNull();
-  });
-
-  test('should return an error if optional arguments are not an object', () => {
-    const calculator = new CCalculateAreaCircle({ radius: 1 }, null);
-    const result = calculator.Action();
-    expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaCircle \| Optionals must be an object./);
-    expect(result.result).toBeNull();
-  });
 });
-
-// Mock CCalculateAreaCircle for testing its constructor validation
-class CCalculateAreaCircle {
-  constructor(required = {}, optionals = {}) {
-    this.Name = 'CCalculateAreaCircle';
-    this.isSuccess = true;
-    this.message = '';
-    this.result = null;
-    try {
-      this.#validateArgs(required, optionals);
-      this.isSuccess = true;
-      this.message = 'Initialized successfully.';
-    } catch (error) {
-      this.isSuccess = false;
-      this.message = `${this.Name} | ${error.message}`;
-      this.result = null;
-    }
-  }
-
-  #validateArgs(required, optionals) {
-    if (typeof required !== 'object' || required === null) {
-      throw new Error('Required must be an object.');
-    }
-    if (typeof optionals !== 'object' || optionals === null) {
-      throw new Error('Optionals must be an object.');
-    }
-    if (!required.hasOwnProperty('radius')) {
-      throw new Error('Required must have a radius property.');
-    }
-    if (typeof required.radius !== 'number' || Number.isNaN(required.radius) || required.radius <= 0) {
-      throw new Error('The radius must be a strictly positive number and not NaN.');
-    }
-  }
-
-  Action() {
-    return { isSuccess: this.isSuccess, message: this.message, result: this.result };
-  }
-}

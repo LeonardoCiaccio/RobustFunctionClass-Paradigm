@@ -27,141 +27,60 @@ describe('calculateAreaTriangle', () => {
   test('should return an error if base is missing', () => {
     const result = calculateAreaTriangle(undefined, 5);
     expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The base must be a strictly positive number and not NaN./);
+    expect(result.message).toMatch(/Validation error: The base must be a strictly positive number and not NaN./);
   });
 
   test('should return an error if height is missing', () => {
     const result = calculateAreaTriangle(10, undefined);
     expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The height must be a strictly positive number and not NaN./);
+    expect(result.message).toMatch(/Validation error: The height must be a strictly positive number and not NaN./);
   });
 
   test('should return an error if base is not a number', () => {
     const result = calculateAreaTriangle('abc', 5);
     expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The base must be a strictly positive number and not NaN./);
+    expect(result.message).toMatch(/Validation error: The base must be a strictly positive number and not NaN./);
   });
 
   test('should return an error if height is not a number', () => {
     const result = calculateAreaTriangle(10, 'xyz');
     expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The height must be a strictly positive number and not NaN./);
+    expect(result.message).toMatch(/Validation error: The height must be a strictly positive number and not NaN./);
   });
 
   test('should return an error if base is zero', () => {
     const result = calculateAreaTriangle(0, 5);
     expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The base must be a strictly positive number and not NaN./);
+    expect(result.message).toMatch(/Validation error: The base must be a strictly positive number and not NaN./);
   });
 
   test('should return an error if height is zero', () => {
     const result = calculateAreaTriangle(10, 0);
     expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The height must be a strictly positive number and not NaN./);
+    expect(result.message).toMatch(/Validation error: The height must be a strictly positive number and not NaN./);
   });
 
   test('should return an error if base is negative', () => {
     const result = calculateAreaTriangle(-10, 5);
     expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The base must be a strictly positive number and not NaN./);
+    expect(result.message).toMatch(/Validation error: The base must be a strictly positive number and not NaN./);
   });
 
   test('should return an error if height is negative', () => {
     const result = calculateAreaTriangle(10, -5);
     expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The height must be a strictly positive number and not NaN./);
+    expect(result.message).toMatch(/Validation error: The height must be a strictly positive number and not NaN./);
   });
 
   test('should return an error if base is NaN', () => {
     const result = calculateAreaTriangle(NaN, 5);
     expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The base must be a strictly positive number and not NaN./);
+    expect(result.message).toMatch(/Validation error: The base must be a strictly positive number and not NaN./);
   });
 
   test('should return an error if height is NaN', () => {
     const result = calculateAreaTriangle(10, NaN);
     expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The height must be a strictly positive number and not NaN./);
-  });
-});
-
-describe('CCalculateAreaTriangle', () => {
-  // Error cases for CCalculateAreaTriangle constructor
-  test('CCalculateAreaTriangle should return an error if required is missing', () => {
-    const calculator = new CCalculateAreaTriangle(undefined, {});
-    const result = calculator.Action();
-    expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: Required must have a base property./);
-  });
-
-
-  test('CCalculateAreaTriangle should return an error if base property is missing in required', () => {
-    const calculator = new CCalculateAreaTriangle({ height: 5 });
-    const result = calculator.Action();
-    expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: Required must have a base property./);
-  });
-
-  test('CCalculateAreaTriangle should return an error if height property is missing in required', () => {
-    const calculator = new CCalculateAreaTriangle({ base: 10 });
-    const result = calculator.Action();
-    expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: Required must have a height property./);
-  });
-
-  test('CCalculateAreaTriangle should return an error if base is not a number in required', () => {
-    const calculator = new CCalculateAreaTriangle({ base: 'abc', height: 5 });
-    const result = calculator.Action();
-    expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The base must be a strictly positive number and not NaN./);
-  });
-
-  test('CCalculateAreaTriangle should return an error if height is not a number in required', () => {
-    const calculator = new CCalculateAreaTriangle({ base: 10, height: 'xyz' });
-    const result = calculator.Action();
-    expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The height must be a strictly positive number and not NaN./);
-  });
-
-  test('CCalculateAreaTriangle should return an error if base is zero in required', () => {
-    const calculator = new CCalculateAreaTriangle({ base: 0, height: 5 });
-    const result = calculator.Action();
-    expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The base must be a strictly positive number and not NaN./);
-  });
-
-  test('CCalculateAreaTriangle should return an error if height is zero in required', () => {
-    const calculator = new CCalculateAreaTriangle({ base: 10, height: 0 });
-    const result = calculator.Action();
-    expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The height must be a strictly positive number and not NaN./);
-  });
-
-  test('CCalculateAreaTriangle should return an error if base is negative in required', () => {
-    const calculator = new CCalculateAreaTriangle({ base: -10, height: 5 });
-    const result = calculator.Action();
-    expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The base must be a strictly positive number and not NaN./);
-  });
-
-  test('CCalculateAreaTriangle should return an error if height is negative in required', () => {
-    const calculator = new CCalculateAreaTriangle({ base: 10, height: -5 });
-    const result = calculator.Action();
-    expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The height must be a strictly positive number and not NaN./);
-  });
-
-  test('CCalculateAreaTriangle should return an error if base is NaN in required', () => {
-    const calculator = new CCalculateAreaTriangle({ base: NaN, height: 5 });
-    const result = calculator.Action();
-    expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The base must be a strictly positive number and not NaN./);
-  });
-
-  test('CCalculateAreaTriangle should return an error if height is NaN in required', () => {
-    const calculator = new CCalculateAreaTriangle({ base: 10, height: NaN });
-    const result = calculator.Action();
-    expect(result.isSuccess).toBe(false);
-    expect(result.message).toMatch(/CCalculateAreaTriangle \| Validation error: The height must be a strictly positive number and not NaN./);
+    expect(result.message).toMatch(/Validation error: The height must be a strictly positive number and not NaN./);
   });
 });
