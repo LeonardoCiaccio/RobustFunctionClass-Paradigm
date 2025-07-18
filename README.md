@@ -9,7 +9,7 @@ This module demonstrates the **RobustFunctionClass Paradigm**: a robust, extensi
 - **Standardized Response**: Every operation returns a consistent object with `isSuccess`, `message`, and `result` fields.
 - **Error Transparency**: Errors are captured and reported with detailed messages, from construction to execution.
 - **Extensibility**: The paradigm is designed to be easily extended for more complex business logic, additional options, or environment setup.
-- **Testability**: The clear separation of concerns and standardized output make automated testing straightforward.
+- **Testability**: The clear separation of concerns and standardized output make automated testing straightforward. Tests are primarily focused on the functional wrapper, ensuring the public API behaves as expected.
 - **Functional Interface**: A simple function (e.g., `calculateAreaSquare`) wraps the class, providing an easy-to-use API for consumers.
 
 

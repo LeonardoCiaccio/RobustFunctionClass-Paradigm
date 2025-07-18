@@ -16,7 +16,7 @@
  *     result: number|null
  *   }
  */
-export class CCalculateAreaTriangle {
+class CCalculateAreaTriangle {
 
     /**
      * Public property: class name
