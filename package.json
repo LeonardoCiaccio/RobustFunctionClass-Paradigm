@@ -1,0 +1,32 @@
+{
+  "name": "robustfunctionclass-paradigm",
+  "version": "1.0.0",
+  "description": "This module demonstrates the **RobustFunctionClass Paradigm**: a robust, extensible, and reusable approach for business logic. While the example is in JavaScript/TypeScript, the paradigm is language-agnostic and can be applied in any object-oriented or multi-paradigm language (such as Python, Java, C#, etc.). The core idea is to encapsulate logic, validation, error handling, and standardized responses within a class, while exposing a simple functional interface for consumers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:verbose": "jest --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeonardoCiaccio/RobustFunctionClass-Paradigm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/LeonardoCiaccio/RobustFunctionClass-Paradigm/issues"
+  },
+  "homepage": "https://github.com/LeonardoCiaccio/RobustFunctionClass-Paradigm#readme",
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "babel-jest": "^30.0.4",
+    "jest": "^30.0.4",
+    "jest-environment-jsdom": "^30.0.4",
+    "jest-localstorage-mock": "^2.4.26"
+  }
+}

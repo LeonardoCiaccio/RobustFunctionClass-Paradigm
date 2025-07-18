@@ -20,7 +20,7 @@
  *
  * This paradigm is designed for public, reusable, and testable business logic modules.
  */
-class CCalculateAreaSquare {
+export class CCalculateAreaSquare {
 
 
     /**
